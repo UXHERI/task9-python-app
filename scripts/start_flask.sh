@@ -1,16 +1,14 @@
 #!/bin/bash
 
-APP_DIR=/home/ubuntu/flaskapp
-LOG_FILE=$APP_DIR/app.log
+set -e  # Stop on any error
 
-# Go to app directory
-cd $APP_DIR
+cd /home/ubuntu/flaskapp
 
-# Stop any existing Flask app (optional)
-pkill -f "python3 app.py"
+echo "Killing any existing Flask processes..."
+pkill -f "python3 app.py" || echo "No Flask process running."
 
-# Install dependencies
-pip3 install --break-system-packages -r requirements.txt
+echo "Installing dependencies..."
+pip3 install --user -r requirements.txt
 
-# Start Flask app in background
-nohup python3 app.py > $LOG_FILE 2>&1 &
+echo "Starting Flask app..."
+nohup python3 app.py > /tmp/app.log 2>&1 &

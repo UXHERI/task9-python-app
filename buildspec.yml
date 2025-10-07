@@ -5,12 +5,12 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      - echo Installing dependencies...
+      - echo Installing Python dependencies...
       - pip install -r requirements.txt
 
   build:
     commands:
-      - echo Build step: Running app.py (or could be tests)
+      - echo Build complete (nothing to compile for Flask)
 
 artifacts:
   files:

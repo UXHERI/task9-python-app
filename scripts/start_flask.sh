@@ -10,7 +10,7 @@ cd $APP_DIR
 pkill -f "python3 app.py"
 
 # Install dependencies
-pip3 install -r requirements.txt
+pip3 install --break-system-packages -r requirements.txt
 
 # Start Flask app in background
 nohup python3 app.py > $LOG_FILE 2>&1 &
